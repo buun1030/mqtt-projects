@@ -27,7 +27,7 @@ func main() {
 	var port = 1883
 	// create a new MQTT client and connect to an MQTT broker running on "test.mosquitto.org"
 	opts := mqtt.NewClientOptions().AddBroker(fmt.Sprintf("tcp://%s:%d", broker, port))
-	opts.SetClientID("go_mqtt_client_kinji94")
+	opts.SetClientID("go_mqtt_client_bf94")
 	// opts.SetUsername("emqx")
 	// opts.SetPassword("public")
 	opts.SetDefaultPublishHandler(messagePubHandler)
@@ -48,14 +48,14 @@ func publish(client mqtt.Client) {
 	num := 10
 	for i := 0; i < num; i++ {
 		text := fmt.Sprintf("Message %d", i)
-		token := client.Publish("kinji94_gendata", 0, false, text)
+		token := client.Publish("bf94/gendata", 0, false, text)
 		token.Wait()
 		time.Sleep(time.Second)
 	}
 }
 
 func sub(client mqtt.Client) {
-	topic := "kinji94/gendata"
+	topic := "bf94/gendata"
 
 	// Set up a channel to receive OS signals (e.g. SIGINT or SIGTERM)
 	sigchan := make(chan os.Signal, 1)
