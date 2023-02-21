@@ -5,7 +5,8 @@ This project uses paho.mqtt.golang as MQTT client library, install:
 go get github.com/eclipse/paho.mqtt.golang
 ```
 
-If you're encountering a red import error in Go when trying to import a package from GitHub
+If you're encountering a red import error in Go when trying to import a package from GitHub.
+
 Clear your Go module cache: If you're using Go modules, try clearing your module cache by running the following command:
 ```console
 go clean -modcache
