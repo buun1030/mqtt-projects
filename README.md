@@ -21,4 +21,5 @@ If you're encountering a red import error in Go when trying to import a package 
 > **Solution 3:** Check your workspace settings: If you are using Visual Studio Code, make sure that your workspace settings are configured to use the correct GOPATH. GOPATH check by
 >  ```console
 > go env
-> ```You can do this by opening your workspace settings (Ctrl+Shift+P, then search for "Preferences: Open Workspace Settings"), and then setting the "go.gopath" property to the correct directory.
+> ```
+> You can do this by opening your workspace settings (Ctrl+Shift+P, then search for "Preferences: Open Workspace Settings"), and then setting the "go.gopath" property to the correct directory.
