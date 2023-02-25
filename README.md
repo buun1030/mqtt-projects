@@ -22,4 +22,4 @@ If you're encountering a red import error in Go when trying to import a package 
 >  ```console
 > go env
 > ```
-> You can do this by opening your workspace settings (Ctrl+Shift+P, then search for "Preferences: Open Workspace Settings"), and then setting the "go.gopath" property to the correct directory.
+> Configuring GOPATH by opening your workspace settings (Ctrl+Shift+P, then search for "Preferences: Open Workspace Settings"), and then setting the "go.gopath" property to the correct directory.
