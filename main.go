@@ -23,13 +23,13 @@ var connectLostHandler mqtt.ConnectionLostHandler = func(client mqtt.Client, err
 }
 
 func main() {
-	var broker = "test.mosquitto.org"
+	var broker = "test.mosquitto.org" // broker.hivemq.com or test.mosquitto.org
 	var port = 1883
 	// create a new MQTT client and connect to an MQTT broker running on "test.mosquitto.org"
 	opts := mqtt.NewClientOptions().AddBroker(fmt.Sprintf("tcp://%s:%d", broker, port))
 	opts.SetClientID("go_mqtt_client_bf94")
-	// opts.SetUsername("emqx")
-	// opts.SetPassword("public")
+	// opts.SetUsername("")
+	// opts.SetPassword("")
 	opts.SetDefaultPublishHandler(messagePubHandler)
 	opts.OnConnect = connectHandler
 	opts.OnConnectionLost = connectLostHandler
@@ -56,6 +56,7 @@ func publish(client mqtt.Client) {
 
 func sub(client mqtt.Client) {
 	topic := "bf94/gendata"
+	qos := 1
 
 	// Set up a channel to receive OS signals (e.g. SIGINT or SIGTERM)
 	sigchan := make(chan os.Signal, 1)
@@ -65,7 +66,7 @@ func sub(client mqtt.Client) {
 	msgchan := make(chan mqtt.Message, 10)
 
 	// Subscribe to the MQTT topic
-	if token := client.Subscribe(topic, 1, func(client mqtt.Client, msg mqtt.Message) {
+	if token := client.Subscribe(topic, byte(qos), func(client mqtt.Client, msg mqtt.Message) {
 		// Pass a callback function to handle incoming messages
 		msgchan <- msg // The callback function simply sends the message to the msgchan channel
 	}); token.Wait() && token.Error() != nil {
