@@ -7,7 +7,7 @@ go get github.com/eclipse/paho.mqtt.golang
 
 If you're encountering a red import error in Go when trying to import a package from GitHub.
 
-> **Solution 1:** If your project did not get any library yet, you need to create go.mod first.
+> **Solution 1:** If your project did not get any library yet, you need to create a go.mod first.
 > ```console
 > go mod init mymodule
 > go mod tidy
